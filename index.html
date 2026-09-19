@@ -1,139 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZuhairEditzz - Ronaldo Edits & Real Madrid Content</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Zuhair - Football &amp; Real Madrid Edits</title>
+<link rel="icon" type="image/png" href="https://yt3.googleusercontent.com/BKZYq7IvkqGeK5gq5xqWQNWHUWez3gFw3t6qdJIBooIl2JllsGsRVLstMEonWNuxk_q5bew92w=s160-c-k-c0x00ffffff-no-rj">
+<link rel="apple-touch-icon" href="https://yt3.googleusercontent.com/BKZYq7IvkqGeK5gq5xqWQNWHUWez3gFw3t6qdJIBooIl2JllsGsRVLstMEonWNuxk_q5bew92w=s160-c-k-c0x00ffffff-no-rj">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          display: ['Cinzel', 'serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .stroke-title {
+    font-size: clamp(3.75rem, 17vw, 14rem);
+    line-height: 0.9;
+    letter-spacing: 0.12em;
+    margin-right: -0.12em;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.18);
+    text-transform: uppercase;
+    user-select: none;
+    transition: all 0.5s ease;
+  }
+  .stroke-title:hover {
+    -webkit-text-stroke: 1.5px rgba(59, 130, 246, 0.45);
+    text-shadow: 0 0 45px rgba(37, 99, 235, 0.25);
+  }
+  .serif-heading { font-family: 'Cinzel', serif; }
+
+  @keyframes cursor-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  .typewriter-caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.15em;
+    vertical-align: -0.15em;
+    background-color: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8, 0 0 18px #2563eb;
+    animation: cursor-blink 0.9s infinite;
+    margin-left: 2px;
+  }
+
+  .matrix-bg {
+    background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  @keyframes subtle-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+  .animate-scroll-bounce { animation: subtle-bounce 2s infinite ease-in-out; }
+
+  .custom-cursor-ring {
+    pointer-events: none; position: fixed; top: 0; left: 0;
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1.5px solid rgba(56, 189, 248, 0.95);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.55), inset 0 0 10px rgba(37, 99, 235, 0.35);
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.3s ease;
+    mix-blend-mode: screen; opacity: 0;
+  }
+  .custom-cursor-glow {
+    pointer-events: none; position: fixed; top: 0; left: 0;
+    width: 280px; height: 280px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(37, 99, 235, 0.06) 45%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 9998; mix-blend-mode: screen; opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  @media (hover: none) and (pointer: coarse) {
+    .custom-cursor-ring, .custom-cursor-glow { display: none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll-bounce, .typewriter-caret { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+  section[id] { scroll-margin-top: 5rem; }
+</style>
 </head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="https://yt3.googleusercontent.com/0eHnnRNvDE5SqXZxUy9M6kBSLUEdSkNxI4ZPwE4C50gDVw-9Qqaacjew_ITe6CK-Tlmj88WdMg=s160-c-k-c0x00ffffff-no-rj" alt="ZuhairEditzz Logo">
-            </div>
-            <div class="nav-links">
-                <button class="nav-btn">ABOUT US</button>
-                <button class="nav-btn">CONTACT</button>
-            </div>
-        </div>
+<body class="bg-black text-zinc-100 font-sans antialiased selection:bg-blue-600 selection:text-white min-h-screen relative overflow-x-hidden">
+
+<div class="custom-cursor-glow" id="cursor-glow"></div>
+<div class="custom-cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<header class="fixed top-0 left-0 right-0 z-50 w-full bg-black/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-10 py-3 sm:py-5 flex items-center justify-between">
+    <a href="#hero" aria-label="Home" class="flex items-center group">
+      <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden ring-2 ring-blue-500/50 shadow-[0_0_15px_rgba(37,99,235,0.4)] group-hover:ring-blue-400 transition duration-300">
+        <img alt="Zuhair Profile" class="w-full h-full object-cover" src="https://yt3.googleusercontent.com/BKZYq7IvkqGeK5gq5xqWQNWHUWez3gFw3t6qdJIBooIl2JllsGsRVLstMEonWNuxk_q5bew92w=s160-c-k-c0x00ffffff-no-rj">
+      </div>
+    </a>
+    <nav class="flex items-center gap-2 sm:gap-4">
+      <a href="#about" class="px-3.5 sm:px-6 py-1.5 sm:py-2 rounded-full border border-blue-500 text-white font-medium text-[11px] sm:text-xs tracking-wider uppercase hover:bg-blue-600/10 hover:border-blue-400 transition-all duration-200">About Us</a>
+      <a href="#contact" class="px-3.5 sm:px-6 py-1.5 sm:py-2 rounded-full border border-blue-500 text-white font-medium text-[11px] sm:text-xs tracking-wider uppercase hover:bg-blue-600/10 hover:border-blue-400 transition-all duration-200">Contact</a>
     </nav>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">ZUHAIR</h1>
-            <p class="hero-subtitle">It's him again, it's always</p>
-            <div class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
-                <p>SCROLL</p>
+<!-- HERO -->
+<section id="hero" class="min-h-[52svh] sm:min-h-[100svh] flex flex-col justify-between items-center relative pt-24 sm:pt-32 pb-8 sm:pb-16 px-4 text-center overflow-hidden">
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[550px] h-[250px] sm:h-[350px] bg-blue-600/10 blur-[110px] sm:blur-[130px] rounded-full pointer-events-none"></div>
+  <div class="my-auto w-full max-w-7xl flex flex-col items-center justify-center">
+    <h1 class="stroke-title font-black cursor-default">Zuhair</h1>
+    <div class="mt-10 sm:mt-6 min-h-[4.5rem] sm:min-h-[2.5rem] flex items-start justify-center px-2">
+      <p class="text-sm sm:text-base md:text-lg font-normal text-zinc-300 tracking-wide block text-center">
+        <span id="typewriter-text"></span><span aria-hidden="true" class="typewriter-caret"></span>
+      </p>
+    </div>
+  </div>
+  <a class="flex flex-col items-center gap-2 group opacity-80 hover:opacity-100 transition mt-auto" href="#about" aria-label="Scroll down">
+    <div class="w-9 h-9 rounded-full border border-zinc-700/80 flex items-center justify-center text-zinc-400 group-hover:border-blue-500 group-hover:text-blue-400 transition duration-300">
+      <svg class="w-4 h-4 animate-scroll-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <span class="text-[10px] font-semibold tracking-[0.25em] uppercase text-zinc-500 group-hover:text-zinc-300 transition">Scroll</span>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section class="py-16 sm:py-36 px-5 sm:px-12 max-w-6xl mx-auto border-t border-zinc-900" id="about">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+    <div class="lg:col-span-4">
+      <h2 class="serif-heading text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">About Us</h2>
+    </div>
+    <div class="lg:col-span-8 space-y-6 text-zinc-400 text-[15px] sm:text-base leading-relaxed font-light">
+      <p>Zuhair Editzz is a football edits channel with over 1,000 subscribers, dedicated to Cristiano Ronaldo and Real Madrid. Every edit is cut by hand, with smooth transitions, sharp effects and beat-synced timing, to capture the moments that make fans fall in love with the game.</p>
+      <p>What started as a passion for football has grown into a community of supporters who share the same love for Ronaldo and the Whites. New edits keep coming, each one better than the last, and every subscriber helps this journey go further.</p>
+      <div class="pt-4"><div class="w-28 h-1 bg-blue-600 rounded-full shadow-[0_0_12px_rgba(37,99,235,0.8)]"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="py-16 sm:py-32 px-5 sm:px-6 border-t border-zinc-900 bg-gradient-to-b from-black via-zinc-950/40 to-black">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="serif-heading text-2xl sm:text-4xl font-black uppercase tracking-tight text-white mb-3">Follow My Work</h2>
+    <p class="text-zinc-400 text-xs sm:text-sm tracking-wide mb-10 sm:mb-12 max-w-xs sm:max-w-none mx-auto">Check out my edits and content across all social media platforms</p>
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-10">
+      <a aria-label="YouTube" class="p-3.5 sm:p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 text-blue-400 hover:text-white hover:bg-blue-600/20 hover:border-blue-500/60 transition duration-300 group shadow-lg" href="https://www.youtube.com/@ZuhairEditzz" rel="noopener noreferrer" target="_blank">
+        <svg class="w-6 h-6 transition-transform group-hover:scale-110 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+      </a>
+      <a aria-label="Instagram" class="p-3.5 sm:p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 text-blue-400 hover:text-white hover:bg-blue-600/20 hover:border-blue-500/60 transition duration-300 group shadow-lg" href="https://instagram.com/ZuhairEditzz" rel="noopener noreferrer" target="_blank">
+        <svg class="w-6 h-6 transition-transform group-hover:scale-110 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+      </a>
+      <a aria-label="Telegram" class="p-3.5 sm:p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 text-blue-400 hover:text-white hover:bg-blue-600/20 hover:border-blue-500/60 transition duration-300 group shadow-lg" href="https://t.me/ZuhairEdits4k" rel="noopener noreferrer" target="_blank">
+        <svg class="w-6 h-6 transition-transform group-hover:scale-110 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.22-3.05 5.56-5.02c.24-.22-.05-.34-.38-.13l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.58-4.46c.54-.2 1.01.12.82.93z"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="py-16 sm:py-24 px-4 sm:px-6 relative" id="contact">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-8 sm:mb-10">
+      <h2 class="serif-heading text-2xl sm:text-4xl font-black uppercase tracking-tight text-white mb-3">Get In Touch</h2>
+      <p class="text-zinc-400 text-xs sm:text-sm font-light max-w-md mx-auto leading-relaxed">Have a question or want to work together? Send me a message and I'll get back to you as soon as possible.</p>
+    </div>
+    <div class="relative rounded-2xl border border-blue-950/50 bg-[#050b14]/90 backdrop-blur-md p-5 sm:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.9)] overflow-hidden">
+      <div class="absolute inset-0 matrix-bg pointer-events-none opacity-40"></div>
+      <form id="contact-form" class="relative z-10 space-y-5" method="POST">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-medium text-zinc-300 mb-1.5" for="first-name">First Name</label>
+            <input class="w-full bg-black/70 border border-zinc-800/80 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition" id="first-name" name="first-name" placeholder="Cristiano" type="text" required>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-zinc-300 mb-1.5" for="last-name">Last Name</label>
+            <input class="w-full bg-black/70 border border-zinc-800/80 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition" id="last-name" name="last-name" placeholder="Ronaldo" type="text" required>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-zinc-300 mb-1.5" for="email">Email</label>
+          <input class="w-full bg-black/70 border border-zinc-800/80 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition" id="email" name="email" placeholder="cr7@domain.com" type="email" required>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-zinc-300 mb-1.5" for="category">Category</label>
+          <div class="relative">
+            <select class="w-full bg-black/70 border border-zinc-800/80 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none transition" id="category" name="category">
+              <option class="bg-zinc-950 text-zinc-400" value="">Select a category</option>
+              <option class="bg-zinc-950 text-white" value="music-promotion">Music Promotion</option>
+              <option class="bg-zinc-950 text-white" value="sponsorship">Sponsorship</option>
+              <option class="bg-zinc-950 text-white" value="other">Other Inquiry</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-zinc-400">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section class="about-section">
-        <div class="about-container">
-            <h2 class="section-title">ABOUT US</h2>
-            <div class="about-line"></div>
-            <p class="about-text">
-                ZuhairEditzz captivates a community of football fans every day, delivering meticulously designed Ronaldo edits and an unwavering dedication to Real Madrid. Our mission is to enrich the football experience by sharing unique, innovative content.
-            </p>
-            <p class="about-text">
-                By forming strategic collaborations with influential partners, we create mutually rewarding opportunities for supporters, clubs, brands, and athletes. We remain committed to providing the best football-focused social media experience, tailored to passionate fans worldwide.
-            </p>
+        <div>
+          <label class="block text-xs font-medium text-zinc-300 mb-1.5" for="message">Message</label>
+          <textarea class="w-full bg-black/70 border border-zinc-800/80 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition resize-none" id="message" name="message" placeholder="Tell us about your project or inquiry..." rows="4" required></textarea>
         </div>
-    </section>
-
-    <!-- Follow My Work Section -->
-    <section class="follow-section">
-        <h2 class="section-title">Follow My Work</h2>
-        <p class="follow-text">Check out my edits and content across all social media platforms</p>
-        <div class="social-icons">
-            <a href="youtube.com/@ZuhairEditzz" class="social-icon" title="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="instagram.com/zuhairedits" class="social-icon" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
+        <div class="flex items-start gap-2.5 pt-1">
+          <input class="mt-0.5 rounded border-zinc-800 bg-black/70 text-blue-600 focus:ring-blue-500 focus:ring-offset-0 focus:ring-1 cursor-pointer" id="privacy" name="privacy" type="checkbox" required>
+          <label class="text-xs text-zinc-400 leading-tight select-none" for="privacy">I have read and agree to the <a class="text-blue-400 hover:text-blue-300 underline underline-offset-2" href="privacy-policy.html">Privacy Policy</a>.</label>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="contact-container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-text">Have a question or want to work together? Send me a message and I'll get back to you as soon as possible.</p>
-            
-            <form class="contact-form" id="contactForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select id="category" name="category" required>
-                        <option value="">Select a category</option>
-                        <option value="collaboration">Collaboration</option>
-                        <option value="inquiry">General Inquiry</option>
-                        <option value="feedback">Feedback</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-
-                <div class="form-checkbox">
-                    <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">I have read and agree to the <a href="#">Privacy Policy</a></label>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+        <div class="pt-2">
+          <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-lg shadow-blue-600/25 active:scale-[0.99] text-sm tracking-wide flex items-center justify-center gap-2" type="submit">
+            <span>Send Message</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </button>
+          <p id="form-status" class="text-center text-xs text-blue-400 mt-3 min-h-[1rem]" role="status"></p>
         </div>
-    </section>
+      </form>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-left">
-                <h3 class="footer-title">ZuhairEditzz</h3>
-                <div class="footer-social">  
-                    <a href="instagram.com/zuhairedits" class="footer-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="youtube.com/@ZuhairEditzz" class="footer-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="t.me/ZuhairEdits4k" class="footer-icon"><i class="fab fa-telegram"></i></a>
-                </div>
-            </div>
-            <div class="footer-right">
-                <div class="contact-info">
-                    <p class="contact-label">Contact:</p>
-                    <p class="contact-email">zuhairmumtaz87@gmail.com</p>
-                </div>
-            </div>
+<!-- FOOTER -->
+<footer class="border-t border-zinc-900/80 bg-black py-10 sm:py-12 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col space-y-8">
+    <div class="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-6 text-center sm:text-left">
+      <div class="flex flex-col items-center sm:items-start">
+        <span class="font-black text-2xl tracking-tighter uppercase text-white">Zuhair<span class="text-blue-500">.</span></span>
+        <div class="flex items-center gap-5 mt-4 text-zinc-500">
+          <a aria-label="Instagram" class="hover:text-zinc-200 transition" href="https://instagram.com/ZuhairEditzz" rel="noopener noreferrer" target="_blank">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+          </a>
+          <a aria-label="YouTube" class="hover:text-zinc-200 transition" href="https://www.youtube.com/@ZuhairEditzz" rel="noopener noreferrer" target="_blank">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+          </a>
+          <a aria-label="Telegram" class="hover:text-zinc-200 transition" href="https://t.me/ZuhairEdits4k" rel="noopener noreferrer" target="_blank">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.22-3.05 5.56-5.02c.24-.22-.05-.34-.38-.13l-6.87 4.33-2.96-.92c-.64-.2-.66-.64.14-.95l11.58-4.46c.54-.2 1.01.12.82.93z"></path></svg>
+          </a>
         </div>
-        <div class="footer-bottom">
-            <a href="#" class="privacy-link">Privacy Policy</a>
-            <p class="copyright">© 2026 ZUHAIR. All rights reserved.</p>
-        </div>
-    </footer>
+      </div>
+      <div class="text-center sm:text-right">
+        <p class="text-[11px] uppercase tracking-wider text-blue-400 font-semibold mb-1">Contact:</p>
+        <a class="text-sm font-medium text-zinc-300 hover:text-white transition" href="mailto:zuhairmumtaz97@gmail.com">zuhairmumtaz97@gmail.com</a>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-zinc-900/60 flex flex-col items-center justify-center gap-2 text-center text-xs text-zinc-500">
+      <a class="hover:text-zinc-400 transition" href="privacy-policy.html">Privacy Policy</a>
+      <p>© 2026 Zuhair. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // Typewriter
+  (function () {
+    const el = document.getElementById('typewriter-text');
+    if (!el) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const phrases = [
+      "It's him again, it's always him 🐐",
+      "Maybe someone doesn't LIKE me because I'm too GOOD? 👀",
+      "Your love makes me STRONG, Your hate makes me UNSTOPPABLE 😮‍💨"
+    ];
+    if (reduce) { el.innerHTML = phrases[0]; return; }
+
+    let p = 0, c = 0, del = false;
+    const seg = window.Intl && Intl.Segmenter ? new Intl.Segmenter(undefined, {granularity: 'grapheme'}) : null;
+    const chars = t => seg ? Array.from(seg.segment(t), x => x.segment) : Array.from(t);
+    const plainOf = h => { const d = document.createElement('div'); d.innerHTML = h; return chars(d.textContent); };
+
+    function slice(html, n) {
+      const root = document.createElement('div');
+      root.innerHTML = html;
+      let left = n;
+      (function walk(node) {
+        Array.from(node.childNodes).forEach(ch => {
+          if (left <= 0) { ch.remove(); return; }
+          if (ch.nodeType === 3) {
+            const cs = chars(ch.textContent);
+            if (cs.length > left) { ch.textContent = cs.slice(0, left).join(''); left = 0; }
+            else left -= cs.length;
+          } else walk(ch);
+        });
+      })(root);
+      return root.innerHTML;
+    }
+
+    function tick() {
+      const html = phrases[p], len = plainOf(html).length;
+      c += del ? -1 : 1;
+      el.innerHTML = slice(html, c);
+      if (!del && c === len) { del = true; return setTimeout(tick, 2200); }
+      if (del && c === 0) { del = false; p = (p + 1) % phrases.length; return setTimeout(tick, 450); }
+      setTimeout(tick, del ? 24 : 46 + Math.random() * 20);
+    }
+    el.textContent = '';
+    setTimeout(tick, 600);
+  })();
+
+  // Cursor follower (desktop only)
+  (function () {
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+    const ring = document.getElementById('cursor-ring');
+    const glow = document.getElementById('cursor-glow');
+    let mx = -100, my = -100, rx = -100, ry = -100, gx = -100, gy = -100, vis = false;
+
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      if (!vis) { rx = gx = mx; ry = gy = my; ring.style.opacity = glow.style.opacity = '1'; vis = true; }
+    });
+    document.addEventListener('mouseleave', () => { ring.style.opacity = glow.style.opacity = '0'; vis = false; });
+
+    const sel = 'a, button, input, select, textarea, .stroke-title';
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest(sel)) { ring.style.width = ring.style.height = '48px'; ring.style.borderColor = 'rgba(96,165,250,1)'; }
+    });
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest(sel)) { ring.style.width = ring.style.height = '32px'; ring.style.borderColor = 'rgba(56,189,248,0.95)'; }
+    });
+
+    (function loop() {
+      if (vis) {
+        rx += (mx - rx) * 0.22; ry += (my - ry) * 0.22;
+        gx += (mx - gx) * 0.12; gy += (my - gy) * 0.12;
+        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+        glow.style.left = gx + 'px'; glow.style.top = gy + 'px';
+      }
+      requestAnimationFrame(loop);
+    })();
+  })();
+
+  // Contact form -> EmailJS
+  (function () {
+    const EMAILJS_PUBLIC_KEY = '-I4sac8NNq38IsME4';
+    const SERVICE_ID = 'service_yys70xl';
+    const TEMPLATE_ID = 'template_vp3eavm';
+
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const btn = form.querySelector('button[type="submit"]');
+    const btnLabel = btn.querySelector('span');
+
+    if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    function say(text, color) { status.textContent = text; status.style.color = color; }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!window.emailjs) { say('Could not load the mail service. Please try again later.', '#f87171'); return; }
+
+      const cat = document.getElementById('category');
+      const params = {
+        name: (document.getElementById('first-name').value + ' ' + document.getElementById('last-name').value).trim(),
+        email: document.getElementById('email').value,
+        title: cat.value ? cat.options[cat.selectedIndex].text : 'General',
+        message: document.getElementById('message').value,
+        time: new Date().toLocaleString()
+      };
+
+      btn.disabled = true;
+      btn.classList.add('opacity-60', 'cursor-not-allowed');
+      btnLabel.textContent = 'Sending...';
+      say('', '');
+
+      try {
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, params);
+        say('Message sent. I will get back to you soon.', '#4ade80');
+        form.reset();
+      } catch (err) {
+        console.error('EmailJS error:', err);
+        say('Message failed to send. Please try again or email me directly.', '#f87171');
+      } finally {
+        btn.disabled = false;
+        btn.classList.remove('opacity-60', 'cursor-not-allowed');
+        btnLabel.textContent = 'Send Message';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
